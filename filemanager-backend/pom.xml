@@ -48,6 +48,7 @@
     </dependencies>
 
     <build>
+        <finalName>filemanager-backend</finalName>
         <plugins>
             <!-- <plugin>
                  <groupId>org.mortbay.jetty</groupId>
@@ -65,15 +66,17 @@
                      <contextPath>/</contextPath>
                  </configuration>
              </plugin>-->
+
             <plugin>
                 <groupId>org.apache.tomcat.maven</groupId>
                 <artifactId>tomcat7-maven-plugin</artifactId>
                 <version>2.2</version>
                 <configuration>
-                    <port>8888</port>
-                    <path>/filemanager-backend</path>
-                    <update>true</update>
-                    <server>tomcat7</server>
+                    <port>80</port>
+                    <path>/</path>
+                    <server>tomcat</server>
+                    <username>tomcat</username>
+                    <password>tomcat</password>
                 </configuration>
             </plugin>
             <plugin>
