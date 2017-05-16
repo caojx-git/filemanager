@@ -1,21 +1,17 @@
 package edu.xnxy.caojx.filemanager.web;
 
-import edu.xnxy.caojx.filemanager.entity.FileManagerSysBaseType;
 import edu.xnxy.caojx.filemanager.entity.UserInfo;
 import edu.xnxy.caojx.filemanager.mybatis.mapper.pagination.PageParameter;
 import edu.xnxy.caojx.filemanager.service.IFileManagerSysBaseTypeService;
 import edu.xnxy.caojx.filemanager.service.IUserInfoService;
-import edu.xnxy.caojx.filemanager.web.util.MD5;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;

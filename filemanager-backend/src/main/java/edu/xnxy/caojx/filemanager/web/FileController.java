@@ -82,6 +82,7 @@ public class FileController {
                     File localFile = new File(path);
                     multipartFile.transferTo(localFile); //将文件写到本地
                     try {
+                        //保存上传的文件信息
                         fileInfo.setFileName(fileName);
                         fileInfo.setPathCode(101);
                         fileInfo.setRecStatus(1);
@@ -98,7 +99,7 @@ public class FileController {
 
 
     /**
-     * Description: 获取文件信息
+     * Description: 获取文件信息列表
      *
      * @param fileName  文件名
      * @param startDate 开始时间
@@ -126,9 +127,9 @@ public class FileController {
     }
 
     /**
-     * Description: 文件下载
+     * Description: 文件下载，文件下载时候需要设置一下响应头信息，防止文件名出现乱码
      *
-     * @param codeId 文件編號
+     * @param codeId 文件编号
      */
     @RequestMapping("/downloadFile.do")
     public void downloadFile(String fileId, String codeId, HttpServletResponse response) {
@@ -143,11 +144,12 @@ public class FileController {
             //获取文件保存路径
             List<FileManagerSysBaseType> fileManagerSysBaseTypeList = fileManagerSysBaseTypeService.listFileManagerSysBaseType(1003L, 101L);
             String path = fileManagerSysBaseTypeList.get(0).getCodeName() + fileName;
-            //将文件写出到浏览器
+            //将文件写出到浏览器，设中响应头信息解决中文名乱码问题
             response.setCharacterEncoding("UTF-8");
             response.setContentType("application/x-msdownload");
             response.setHeader("Content-Disposition", "attachment;filename=" +
                     new String(fileName.getBytes("UTF-8"), "ISO-8859-1"));
+            //文件处理
             inputStream = new FileInputStream(new File(path));
             outputStream = response.getOutputStream();
             byte[] buf = new byte[1024];
@@ -176,7 +178,6 @@ public class FileController {
      */
     @RequestMapping("/preview.do")
     public String preViewFile(String fileId, HttpServletRequest httpServletRequest) {
-
         try {
             //获取文件名
             FileInfo fileInfo = new FileInfo();
@@ -218,7 +219,7 @@ public class FileController {
     }
 
     /**
-     * Description: 删除文件
+     * Description: 删除文件，并不是真的删除文件，只是将数据库中的文件数据设置为失效
      *
      * @param fileId 文件编号
      */

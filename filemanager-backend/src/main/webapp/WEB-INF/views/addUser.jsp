@@ -24,7 +24,7 @@
     <div class="form-group">
         <label class="col-sm-2 control-label">用户编号</label>
         <div class="col-sm-4">
-            <input type="text" class="form-control" id="userId" name="userId"
+            <input type="number" class="form-control" id="userId" name="userId"
                    placeholder="请输入用户编号">
         </div>
     </div>
@@ -52,7 +52,7 @@
     <div class="form-group">
         <label class="col-sm-2 control-label">年龄</label>
         <div class="col-sm-4">
-            <input type="text" class="form-control" id="userAge" name="userAge"
+            <input type="number" class="form-control" id="userAge" name="userAge"
                    placeholder="年龄">
         </div>
     </div>
@@ -99,7 +99,7 @@
             <label class=" col-sm-1 control-label">管理员</label>
             <select class="col-sm-1 form-control" id="manager" name="manager">
                 <option value="0" checked>否</option>
-                <option value="2">是</option>
+                <option value="1">是</option>
             </select>
         </c:if>
         <c:if test="${sessionScope.userInfo.managerType != 1 && sessionScope.userInfo.manager == 1}">

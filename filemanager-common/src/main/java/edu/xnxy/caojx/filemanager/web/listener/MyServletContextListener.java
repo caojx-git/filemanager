@@ -11,11 +11,12 @@ import javax.annotation.Resource;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
+import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 /**
  * Description:
- *
+ * <p>
  * Created by caojx on 17-4-28.
  */
 public class MyServletContextListener implements ServletContextListener {
@@ -29,10 +30,10 @@ public class MyServletContextListener implements ServletContextListener {
             ServletContext servletContext = servletContextEvent.getServletContext();
             WebApplicationContext webApplicationContext = WebApplicationContextUtils.getWebApplicationContext(servletContext);
             IFileManagerSysBaseTypeService fileManagerSysBaseTypeService = (IFileManagerSysBaseTypeService) webApplicationContext.getBean("fileManagerSysBaseTypeService");
-            List<FileManagerSysBaseType> collegeList = fileManagerSysBaseTypeService.listFileManagerSysBaseType(1002L,null);
-            servletContext.setAttribute("collegeList",collegeList);
+            List<FileManagerSysBaseType> collegeList = fileManagerSysBaseTypeService.listFileManagerSysBaseType(1002L, null);
+            servletContext.setAttribute("collegeList", collegeList);
         } catch (BeansException e) {
-            log.error("MyServletContextListener初始化出错",e);
+            log.error("MyServletContextListener初始化出错", e);
         }
     }
 
@@ -40,4 +41,5 @@ public class MyServletContextListener implements ServletContextListener {
     public void contextDestroyed(ServletContextEvent servletContextEvent) {
 
     }
+
 }

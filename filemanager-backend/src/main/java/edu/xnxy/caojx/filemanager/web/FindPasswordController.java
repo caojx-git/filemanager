@@ -2,11 +2,10 @@ package edu.xnxy.caojx.filemanager.web;
 
 import edu.xnxy.caojx.filemanager.entity.UserInfo;
 import edu.xnxy.caojx.filemanager.service.IUserInfoService;
-import edu.xnxy.caojx.filemanager.web.util.MD5;
-import edu.xnxy.caojx.filemanager.web.util.MailUtil;
+import edu.xnxy.caojx.filemanager.util.MD5;
+import edu.xnxy.caojx.filemanager.util.MailUtil;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
@@ -60,7 +59,7 @@ public class FindPasswordController {
     }
 
     /**
-     * Description: 发送邮件
+     * Description:生成邮件内容并调用邮件工具类中的方法发送邮件
      *
      * @param userInfo
      * @param request
@@ -89,15 +88,12 @@ public class FindPasswordController {
 
             //将用编号、过期时间、密钥生成链接密钥
             String key = userInfo.getUserId() + "$" + date + "$" + secretKey;
-
             String digitalSignature = MD5.getMD5Str(key);// 数字签名
 
+            //邮件内容
             String path = request.getContextPath();
-
             String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path;
-
             String resetPassHref = basePath + "/findPassword/findPassword.do?sid=" + digitalSignature + "&userId=" + userInfo.getUserId();
-
             String emailContent = "请勿回复本邮件.点击下面的链接,重设密码,本邮件超过30分钟,链接将会失效，需要重新申请找回密码." + resetPassHref;
 
             //发送邮件

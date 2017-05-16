@@ -28,7 +28,7 @@
         <result column="uploader" jdbcType="VARCHAR" property="uploader"></result>
         <result column="file_id" jdbcType="NUMERIC" property="fileId"></result>
         <result column="file_name" jdbcType="VARCHAR" property="fileName"></result>
-        <result column="collegeId" jdbcType="NUMERIC" property="collegeId"></result>
+        <result column="college_id" jdbcType="NUMERIC" property="collegeId"></result>
         <result column="create_date" jdbcType="TIMESTAMP" property="createDate"></result>
         <result column="ext1" jdbcType="NUMERIC" property="ext1"></result>
         <result column="ext2" jdbcType="VARCHAR" property="ext2"></result>

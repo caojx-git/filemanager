@@ -43,7 +43,10 @@ $(document).ready(function () {
     var validate = function () {
         $("#signupForm").validate({
             rules: {
-                userId: "required",
+                userId: {
+                    required:true,
+                    maxlength:12
+                },
                 userName: "required",
                 userPassword: "required",
                 confirm_userPassword: {
@@ -69,7 +72,10 @@ $(document).ready(function () {
             },
 
             messages: {
-                userId: "用户编号不能为空",
+                userId : {
+                    required:"用户编号不能为空",
+                    maxlength:"长度不能超过12位"
+                },
                 userName: "用户名不能为空",
                 userPassword: "密码不能为空",
                 confirm_userPassword: {

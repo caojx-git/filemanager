@@ -108,7 +108,7 @@
             <label class=" col-sm-1 control-label">管理员</label>
             <select class="col-sm-1 form-control" id="manager" name="manager">
                 <c:choose>
-                    <c:when test="${sessionScope.userInfo.managerType ==1 }">
+                    <c:when test="${sessionScope.userInfo.managerType ==1 && sessionScope.userInfo.userId != requestScope.userInfo.userId}">
                         <option value="1" selected>是</option>
                         <option value="0">否</option>
                     </c:when>

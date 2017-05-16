@@ -39,7 +39,7 @@ public class PageParameter {
             totalPageTemp = 1;
         }
         //如果当前页数小于0，显示第一页
-        if(this.currentPage < 0){
+        if(this.currentPage <= 0){
             this.currentPage =1;
         }
         //如果当前页数大于总页数，显示最后一页

@@ -1,4 +1,4 @@
-package edu.xnxy.caojx.filemanager.web.util;
+package edu.xnxy.caojx.filemanager.util;
 
 //import required classes
 

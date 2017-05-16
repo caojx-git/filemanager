@@ -96,10 +96,12 @@ public class FileCollectionInfoController {
     public Map<String, Object> saveCollectionFile(Long fileId, String fileName, Long uploadId, Long collegeId, HttpServletRequest request) {
         Map<String, Object> resultMap = new HashMap<String, Object>();
         try {
+            //查询文件所有者的信息
             UserInfo userInfo = new UserInfo();
             userInfo.setUserId(uploadId);
             userInfo = userInfoService.getUserInfo(userInfo);
 
+            //设置文件收藏需要的相关数据
             HttpSession session = request.getSession();
             UserInfo userInfo1 = (UserInfo) session.getAttribute("userInfo");
             FileCollectionInfo fileCollectionInfo = new FileCollectionInfo();
@@ -110,7 +112,6 @@ public class FileCollectionInfoController {
             if (fileName != null && !"".equals(fileName)) {
                 fileCollectionInfo.setFileName(fileName);
             }
-
             if (collegeId != null) {
                 fileCollectionInfo.setCollegeId(collegeId);
             }

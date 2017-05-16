@@ -33,9 +33,9 @@
     }
 
     .box {
-        background: url(/images/8.jpg);
+        background: url(/images/back5.jpeg);
         width: 100%;
-        height: 800px;
+        height: 700px;
     }
 
     .boxside {

@@ -74,10 +74,12 @@
                 <configuration>
                     <url>http://localhost:8888/manager/text</url>
                     <port>8888</port>
+                    <!--<path>/${project.build.finalName}</path>-->
                     <path>/</path>
                     <server>tomcat</server>
                     <username>tomcat</username>
                     <password>tomcat</password>
+                    <uriEncoding>UTF-8</uriEncoding>
                 </configuration>
             </plugin>
             <plugin>

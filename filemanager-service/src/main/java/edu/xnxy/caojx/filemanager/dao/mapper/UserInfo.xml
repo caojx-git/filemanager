@@ -79,7 +79,7 @@
         #{userGender, jdbcType=NUMERIC}, #{userAge, jdbcType=NUMERIC}, #{collegeId ,jdbcType=NUMERIC},
         #{manager, jdbcType=NUMERIC}, #{managerType, jdbcType=NUMERIC}, #{userAddress ,jdbcType=VARCHAR},
         #{userEmail, jdbcType=VARCHAR}, #{userPhoneNumber ,jdbcType=VARCHAR},#{createDate, jdbcType=TIMESTAMP},
-       #{validataCode, jdbcType=VARCHAR}, #{outDate, jdbcType=NUMERIC}  #{recStatus, jdbcType=NUMERIC},
+       #{validataCode, jdbcType=VARCHAR}, #{outDate, jdbcType=NUMERIC},#{recStatus, jdbcType=NUMERIC},
        #{ext1, jdbcType=NUMERIC}, #{ext2, jdbcType=VARCHAR}, #{ext3, jdbcType=VARCHAR})
     </insert>
 

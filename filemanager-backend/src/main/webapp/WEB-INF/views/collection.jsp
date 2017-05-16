@@ -78,7 +78,7 @@
                                value="${requestScope.fileCollectionInfo.uploader}" placeholder="文件上传者">
                     </div>
                     <div class="form-group">
-                        <label for="collegeId">学院</label>
+                            <label for="collegeId">学院</label>
                         <select id="collegeId" name="collegeId">
                             <option value="">所有</option>
                             <c:forEach items="${applicationScope.collegeList}" var="item">
@@ -121,7 +121,9 @@
                                         ${item.fileName}
                                 </td>
                                 <td class="text-center">
-                                        ${item.collegeId}
+                                    <c:forEach items="${applicationScope.collegeList}" var="college">
+                                        <c:if test="${item.collegeId == college.codeId}">${college.codeName}</c:if>
+                                    </c:forEach>
                                 </td>
                                 <td class="text-center">
                                         ${item.uploader}

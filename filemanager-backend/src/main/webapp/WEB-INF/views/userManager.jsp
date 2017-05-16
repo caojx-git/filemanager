@@ -153,7 +153,7 @@
                                 </td>
                                 <td class="text-center">
                                     <c:if test="${userInfo.manager == 0 || userInfo.manager == null}">否</c:if>
-                                    <c:if test="${userInfo.manager == 1|| userInfo.manager == 2}">是</c:if>
+                                    <c:if test="${userInfo.manager == 1}">是</c:if>
                                 </td>
                                 <td class="text-center">
                                     <a href="<%=basePath%>/filter/userManager/editUserInfoPage.do?userId=${userInfo.userId}">

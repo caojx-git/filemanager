@@ -3,15 +3,13 @@ package edu.xnxy.caojx.filemanager.service;
 import edu.xnxy.caojx.filemanager.dao.IUserInfoDAO;
 import edu.xnxy.caojx.filemanager.entity.UserInfo;
 import edu.xnxy.caojx.filemanager.mybatis.mapper.pagination.PageParameter;
-import edu.xnxy.caojx.filemanager.web.util.MD5;
+import edu.xnxy.caojx.filemanager.util.MD5;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Description: 用户信息维护u业务实现类
@@ -28,7 +26,9 @@ public class UserInfoServiceImpl implements IUserInfoService {
     private IUserInfoDAO userInfoDAO;
 
     /**
-     * Description: 用户登录
+     * Description: 用户登录，通过用户的userId去数据库中查询用户信息。
+     * 如果查询到用户信息，比较密码是否正确，密码正确返回用户对象，密码不正确异常提示用户密码错误。
+     * 如果没有查询到用户信息返回null。
      *
      * @param userId       用户编号
      * @param userPassword 用户密码
@@ -41,6 +41,7 @@ public class UserInfoServiceImpl implements IUserInfoService {
             userInfo.setUserId(userId);
             //对密码进行md5解密
             userPassword = MD5.getMD5Str(userPassword);
+            //更具用户的userId查询用户，并判断用户是否存在
             UserInfo userInfo1 = userInfoDAO.get(userInfo);
             if (userInfo1 != null) {
                 if (userPassword != null && userPassword.equals(userInfo1.getUserPassword())) {

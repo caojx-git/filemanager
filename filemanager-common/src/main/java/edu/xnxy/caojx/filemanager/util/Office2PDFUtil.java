@@ -29,7 +29,7 @@ public class Office2PDFUtil {
     private static final Logger log = Logger.getLogger(Office2PDFUtil.class);
 
     /**
-     * Description: 将Office文档转换为PDF. 运行该函数需要用到libreOffice
+     * Description: 将Office文档转换为PDF. 运行该方法需要用到libreOffice
      *
      * 安装libreoffice:yum install -y libreoffice.x86_64
      *

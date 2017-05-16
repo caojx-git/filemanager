@@ -175,18 +175,11 @@
                                     </a>
                                 </td>
                                 <td class="text-center">
-                                    <c:choose>
-                                        <c:when test="${(sessionScope.userInfo.collegeId == fileInfo.collegeId && sessionScope.userInfo.manager == 1) || sessionScope.userInfo.managerType == 1}">
+                                        <c:if test="${(sessionScope.userInfo.collegeId == fileInfo.collegeId && sessionScope.userInfo.manager == 1) || sessionScope.userInfo.managerType == 1}">
                                             <a href="javascript:deleteFile(${fileInfo.fileId})">
                                                 <div class="icon iconfont icon-shanchu"></div>
                                             </a>
-                                        </c:when>
-                                        <c:otherwise>
-                                            <a href="#">
-                                                <div class="icon iconfont icon-shanchu"></div>
-                                            </a>
-                                        </c:otherwise>
-                                    </c:choose>
+                                        </c:if>
                                 </td>
                             </tr>
                         </c:forEach>
